@@ -11,6 +11,11 @@ const links = [
     match: (p: string) => p.startsWith("/liste-taches"),
   },
   {
+    href: "/recherche",
+    label: "Recherche",
+    match: (p: string) => p.startsWith("/recherche"),
+  },
+  {
     href: "/creer-tache",
     label: "Créer tâche",
     match: (p: string) => p.startsWith("/creer-tache"),
