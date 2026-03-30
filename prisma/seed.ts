@@ -1,8 +1,9 @@
 import path from "path";
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
 import { PrismaClient } from "@prisma/client";
+import "dotenv/config";
 
-const url = `file:${path.join(process.cwd(), "tasks.db")}`;
+const url = `file:${path.join(process.cwd(), process.env["DB_NAME"] || "tasks.db")}`;
 const adapter = new PrismaBetterSqlite3({ url });
 const prisma = new PrismaClient({ adapter });
 

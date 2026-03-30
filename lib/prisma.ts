@@ -5,7 +5,7 @@ import { PrismaClient } from "@prisma/client";
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 
 function createPrismaClient() {
-  const url = `file:${path.join(process.cwd(), "tasks.db")}`;
+  const url = `file:${path.join(process.cwd(), process.env["DB_NAME"] || "tasks.db")}`;
   const adapter = new PrismaBetterSqlite3({ url });
   return new PrismaClient({ adapter });
 }
